@@ -66,8 +66,8 @@ BaXoai Framework does **not** require any third‑party assets to function.
 
 | Package | Description | Required? |
 |--------|-------------|-----------|
-| **Odin Inspector** | Advanced inspectors and editor tooling | ❌ Optional |
-| **DOTween** | Tweening library for UI and gameplay | ❌ Optional |
+| **Odin Inspector** | Advanced inspectors and editor tooling | ❌ Required |
+| **DOTween** | Tweening library for UI and gameplay | ❌ Required |
 
 If installed, BaXoai will automatically enable additional helper utilities.
 
