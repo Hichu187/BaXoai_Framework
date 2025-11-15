@@ -1,0 +1,11 @@
+{
+    "name": "com.baxoai.framework",
+    "version": "1.0.0",
+    "displayName": "BaXoai Framework",
+    "description": "A lightweight and scalable framework for Unity development, including core patterns, UI utilities, data helpers, and optional integrations.",
+    "unity": "6000.2",
+    "author": {
+        "name": "BaXoai",
+        "email": "your@email.com"
+    }
+}
