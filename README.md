@@ -4,125 +4,114 @@
 ---
 
 ## 🚀 Overview
-**BaXoai Framework** is a clean, modular, and developer-friendly Unity toolkit designed to speed up production and simplify your project structure.  
-It provides essential architecture patterns, UI utilities, data helpers, extension methods, and optional integrations for popular Unity tools.
+**BaXoai Framework** is a clean, modular, and developer-friendly Unity toolkit designed to accelerate development and maintain a consistent project structure.
 
-This is the initial version — more features and modules will be added in future updates.
+It includes architecture foundations, UI utilities, data helpers, extension methods, and optional integrations with popular Unity tools.
 
----
-
-## ✨ Core Features
-
-### 🧩 Architecture Patterns
-- Singleton  
-- State Machine  
-- Object Pooling  
-- Event System  
-- (More patterns incoming…)
-
-### 🎨 UI Utilities
-- Button animations (scale, fade, pulse)  
-- Image effects  
-- Scroll helpers  
-- UI extensions  
-
-### 📦 Data & Helpers
-- Scriptable data structure  
-- Save/Load utilities  
-- Runtime configuration helpers  
-- Common extension methods  
+> ⚠️ This is an early version — more modules and documentation will be added soon.
 
 ---
 
-## 📥 Installation
+# 📦 Required Dependencies
 
-### 1️⃣ Install via Git URL  
+Before installing BaXoai Framework, you **must** install the following Unity packages:
+
+| Package | Source | Required |
+|--------|--------|----------|
+| **Unity Addressables** | Unity Package Manager | ✅ |
+| **Unity ResourceManager** | Installed with Addressables | ✅ |
+| **Unity Mathematics** | Unity Package Manager | ✅ |
+| **Easy Save 3** | Asset Store | ✅ |
+| **UniTask** | https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask | ✅ |
+| **Vertx Debugging Tools** | https://github.com/vertxxyz/Vertx.Debugging.git | Optional |
+
+> Missing any required dependency may cause compilation errors.
+
+---
+
+# 📥 Installation
+
+## 1️⃣ Install via Git URL  
 Unity → *Package Manager* → *Add package from git URL*:
 
 ```
 https://github.com/Hichu187/BaXoai_Framework.git
 ```
 
-### 2️⃣ Install a specific version  
+## 2️⃣ Install a specific version  
 ```
 https://github.com/Hichu187/BaXoai_Framework.git#1.0.0
 ```
 
 ---
 
-# 🔌 Integrations
+# ✨ Core Features
 
-BaXoai Framework supports optional integrations with popular Unity tools.  
-These packages are **not included** inside the framework and must be installed separately.
+## 🧩 Architecture
+- Singleton  
+- State Machine  
+- Object Pooling  
+- Event System  
+- (More incoming…)
+
+## 🎨 UI Utilities
+- Button animations (scale / fade / pulse)  
+- Image effects  
+- Scroll helpers  
+- UI extensions  
+
+## 📦 Data & Helpers
+- Scriptable data model  
+- Save/Load utilities  
+- Runtime configuration helpers  
+- Extension methods  
 
 ---
 
-## 📦 Dependencies
+# 🔌 Optional Integrations
 
-### 🔒 Required
-BaXoai Framework does **not** require any third‑party assets to function.
+BaXoai Framework supports optional integrations using **Scripting Define Symbols**.
 
-### 🔓 Optional (Recommended)
-
-| Package | Description | Required? |
-|--------|-------------|-----------|
-| **Odin Inspector** | Advanced inspectors and editor tooling | ❌ Required |
-| **DOTween** | Tweening library for UI and gameplay | ❌ Required |
-
-If installed, BaXoai will automatically enable additional helper utilities.
+These integrations are disabled unless the related plugin is installed.
 
 ---
 
 # ⚙️ Enabling Integrations
 
-BaXoai Framework uses **Scripting Define Symbols** to toggle integration code.  
-This prevents compilation errors if the user does not have the optional plugins installed.
+Unity → *Project Settings* → *Player* → *Scripting Define Symbols*
 
 ---
 
 ## 🧩 Odin Integration
 
-### 1️⃣ Install Odin Inspector  
-(From Asset Store or local package)
-
-### 2️⃣ Add scripting define symbol:
+1. Install Odin Inspector  
+2. Add define:
 ```
 ODIN_INSPECTOR
 ```
-
-Unity → *Project Settings* → *Player* → *Scripting Define Symbols*
-
-### 3️⃣ Odin-based features unlocked:
-- Serialized ScriptableObjects  
+3. Features unlocked:
 - Enhanced inspectors  
-- Editor helpers  
-- Additional utilities under `Integrations/Odin/`
+- Serialized ScriptableObjects  
+- Editor tooling  
+- Additional helpers under `Integrations/Odin/`
 
 ---
 
 ## 🎮 DOTween Integration
 
-### 1️⃣ Install DOTween  
-From Asset Store or Git:
-
-```
-https://github.com/Demigiant/dotween
-```
-
-### 2️⃣ Add scripting define symbol:
+1. Install DOTween  
+2. Add define:
 ```
 DOTWEEN
 ```
-
-### 3️⃣ DOTween features unlocked:
-- UI animation helpers  
-- Tween extensions  
+3. Features unlocked:
+- UI tween helpers  
 - Animation presets  
-- Utilities under `Integrations/DOTween/`
+- Extension methods  
 
 ---
 
-## 📁 Recommended Folder Structure
+# 📁 Recommended Folder Structure
 
 ```
 BaXoai_Framework/
@@ -142,11 +131,11 @@ BaXoai_Framework/
 
 ---
 
-## 📄 License
+# 📄 License
 BaXoai Framework is released under the **MIT License**.
 
 ---
 
-## 📌 Notes
-This is the early version of the framework.  
-More modules, documentation, and samples will be added in future updates.
+# 📌 Notes
+- This is an early-stage framework.  
+- More modules, examples, and documentation will be added soon.
