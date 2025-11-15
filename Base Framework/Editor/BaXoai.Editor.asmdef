@@ -1,0 +1,16 @@
+{
+    "name": "BaXoai.Editor",
+    "rootNamespace": "BaXoai.Editor",
+    "references": [
+        "GUID:a453424795427274bb28bf0f29d0ef5a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
