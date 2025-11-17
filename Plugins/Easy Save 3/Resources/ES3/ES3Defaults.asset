@@ -29,23 +29,36 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - BaXoai
-    - OdinSerializer
     - ES3
-    - PPv2URPConverters
+    - Boxophobic.Utils.Editor
+    - Game
+    - HichuEz
+    - BetterHierarchy
+    - OdinSerializer
     - UniTask
-    - BaXoai.Editor
     - Vertx.Debugging.Runtime
-    - Sirenix.OdinInspector.Modules.Unity.Addressables
-    - UniTask.Linq
-    - DOTween.Modules
-    - DOTweenPro.Scripts
-    - UniTask.TextMeshPro
-    - Vertx.Debugging.Editor
-    - UniTask.Editor
-    - DOTweenPro.EditorScripts
-    - Sirenix.OdinInspector.Modules.UnityMathematics
     - Assembly-CSharp
+    - UniTask.Linq
+    - Boxophobic.SkyboxCubemapExtended.Editor
+    - DOTween.Modules
+    - Coffee.UIParticle
+    - Boxophobic.Utils.Scripts
+    - BetterHierarchyDemoScripts
+    - UniTask.TextMeshPro
+    - Hichu.Editor
+    - JoystickPack
+    - Coffee.UIParticle.Editor
+    - Sirenix.OdinInspector.Modules.Unity.Addressables
+    - IconCreator.Core
+    - Kcc
+    - Assembly-CSharp-firstpass
+    - DOTweenPro.EditorScripts
+    - Vertx.Debugging.Editor
+    - VoxelLabs.UltimatePreview.Lib
+    - UniTask.Editor
+    - DOTweenPro.Scripts
+    - Sirenix.OdinInspector.Modules.UnityMathematics
+    - ScriptablePacker
     - UniTask.Addressables
     - UniTask.DOTween
     showAdvancedSettings: 1
