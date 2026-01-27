@@ -30,22 +30,36 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - BaXoai
+    - Assembly-CSharp
     - OdinSerializer
+    - FPSAnimationFramework.Runtime
     - ES3
-    - PPv2URPConverters
     - UniTask
-    - BaXoai.Editor
     - Vertx.Debugging.Runtime
+    - KAnimationCore.Editor
     - Sirenix.OdinInspector.Modules.Unity.Addressables
     - UniTask.Linq
+    - Coffee.SoftMaskForUGUI
     - DOTween.Modules
     - DOTweenPro.Scripts
+    - KAnimationCore.Runtime
+    - Coffee.SoftMaskForUGUI.Editor
+    - FPSAnimationFramework.Editor
+    - Coffee.UIParticle
+    - ScriptableWidget.Editor
+    - UMotionSourceEditor
+    - Purchasing.Common
     - UniTask.TextMeshPro
+    - Coffee.UIParticle.Editor
     - Vertx.Debugging.Editor
+    - IAPResolver
     - UniTask.Editor
+    - ScriptableWidget.Runtime
     - DOTweenPro.EditorScripts
     - Sirenix.OdinInspector.Modules.UnityMathematics
-    - Assembly-CSharp
+    - UMotionSourceApplication
+    - RecoilAnimation.Runtime
+    - Analytics
     - UniTask.Addressables
     - UniTask.DOTween
     showAdvancedSettings: 1
