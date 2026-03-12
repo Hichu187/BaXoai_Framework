@@ -24,7 +24,7 @@ namespace BaXoai
                 pool.Dispose();
         }
 
-        public static AudioScript Play(AudioConfig config, bool loop = false, Transform pos = null, bool followParent = false)
+        public static AudioScript Play(AudioConfig config, bool loop = false, Transform pos = null, bool followParent = true)
         {
             if (config == null || config.clip == null || Instance == null)
                 return null;
