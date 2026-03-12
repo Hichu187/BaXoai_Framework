@@ -83,7 +83,7 @@ namespace BaXoai.Editor
 
                 if (GUILayout.Button("Select Folder", GUILayout.Width(120)))
                 {
-                    string selectedPath = EditorUtility.OpenFolderPanel("Select Target Folder", "Assets", "");
+                    string selectedPath = EditorUtility.OpenFolderPanel("Select Target Folder", Application.dataPath, "");
 
                     if (!string.IsNullOrEmpty(selectedPath))
                     {
@@ -112,42 +112,46 @@ namespace BaXoai.Editor
             GUI.Box(dropArea, "Kéo thả AudioClip vào đây", EditorStyles.helpBox);
 
             Event evt = Event.current;
-            if (!dropArea.Contains(evt.mousePosition))
-                return;
 
-            switch (evt.type)
+            if (dropArea.Contains(evt.mousePosition))
             {
-                case EventType.DragUpdated:
-                case EventType.DragPerform:
-                    bool hasAudio = false;
-
-                    foreach (Object dragged in DragAndDrop.objectReferences)
-                    {
-                        if (dragged is AudioClip)
+                switch (evt.type)
+                {
+                    case EventType.DragUpdated:
+                    case EventType.DragPerform:
                         {
-                            hasAudio = true;
+                            bool hasAudio = false;
+
+                            foreach (Object dragged in DragAndDrop.objectReferences)
+                            {
+                                if (dragged is AudioClip)
+                                {
+                                    hasAudio = true;
+                                    break;
+                                }
+                            }
+
+                            if (hasAudio)
+                            {
+                                DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+
+                                if (evt.type == EventType.DragPerform)
+                                {
+                                    DragAndDrop.AcceptDrag();
+
+                                    foreach (Object dragged in DragAndDrop.objectReferences)
+                                    {
+                                        if (dragged is AudioClip clip)
+                                            AddClip(clip);
+                                    }
+                                }
+
+                                evt.Use();
+                            }
+
                             break;
                         }
-                    }
-
-                    if (!hasAudio)
-                        return;
-
-                    DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
-
-                    if (evt.type == EventType.DragPerform)
-                    {
-                        DragAndDrop.AcceptDrag();
-
-                        foreach (Object dragged in DragAndDrop.objectReferences)
-                        {
-                            if (dragged is AudioClip clip)
-                                AddClip(clip);
-                        }
-                    }
-
-                    evt.Use();
-                    break;
+                }
             }
 
             using (new EditorGUILayout.HorizontalScope())
@@ -236,18 +240,20 @@ namespace BaXoai.Editor
 
             try
             {
-                AssetDatabase.StartAssetEditing();
-
-                foreach (AudioClip clip in clips)
+                for (int i = 0; i < clips.Count; i++)
                 {
+                    AudioClip clip = clips[i];
+
                     if (clip == null)
                     {
                         skippedCount++;
                         continue;
                     }
 
-                    AudioConfig config = ScriptableObjectHelper.CreateAsset<AudioConfig>(folderPath, clip.name);
+                    string assetPath = AssetDatabase.GenerateUniqueAssetPath(
+                        Path.Combine(folderPath, clip.name + ".asset"));
 
+                    AudioConfig config = ScriptableObject.CreateInstance<AudioConfig>();
                     if (config == null)
                     {
                         skippedCount++;
@@ -256,17 +262,20 @@ namespace BaXoai.Editor
 
                     config.Construct(clip);
 
+                    AssetDatabase.CreateAsset(config, assetPath);
                     EditorUtility.SetDirty(config);
-                    AssetDatabase.SaveAssets();
-                    ScriptableObjectHelper.SaveAsset(config);
+
                     createdCount++;
                 }
-            }
-            finally
-            {
-                AssetDatabase.StopAssetEditing();
+
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogException(ex);
+                EditorUtility.DisplayDialog("Lỗi", ex.Message, "OK");
+                return;
             }
 
             EditorUtility.DisplayDialog(
