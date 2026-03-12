@@ -255,6 +255,9 @@ namespace BaXoai.Editor
                     }
 
                     config.Construct(clip);
+
+                    EditorUtility.SetDirty(config);
+                    AssetDatabase.SaveAssets();
                     ScriptableObjectHelper.SaveAsset(config);
                     createdCount++;
                 }
