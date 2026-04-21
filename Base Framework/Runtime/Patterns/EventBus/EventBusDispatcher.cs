@@ -9,12 +9,8 @@ namespace BaXoai
 
         public static void Subscribe(EventBus bus, Action<T> listener)
         {
-            if (!s_Actions.ContainsKey(bus))
-            {
-                s_Actions.Add(bus, delegate { });
-            }
-
-            s_Actions[bus] += listener;
+            s_Actions.TryGetValue(bus, out var existing);
+            s_Actions[bus] = existing + listener;
         }
 
         public static void Unsubscribe(EventBus bus, Action<T> listener)

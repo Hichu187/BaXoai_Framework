@@ -88,17 +88,11 @@ namespace BaXoai
             }
             else
             {
-                if (s_headerColorDict.ContainsKey(header.ToString()))
+                string headerStr = header.ToString();
+                if (!s_headerColorDict.TryGetValue(headerStr, out color))
                 {
-                    color = s_headerColorDict[header.ToString()];
-                }
-                else
-                {
-                    // Lerp rainbow color
                     color = Color.HSVToRGB(Mathf.PingPong(s_headerColorStepStart + s_headerColorCount * s_headerColorStep, 1), 1, 1);
-
-                    s_headerColorDict.Add(header.ToString(), color);
-
+                    s_headerColorDict.Add(headerStr, color);
                     s_headerColorCount++;
                 }
             }

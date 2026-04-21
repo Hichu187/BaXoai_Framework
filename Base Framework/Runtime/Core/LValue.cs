@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace BaXoai
@@ -13,7 +14,7 @@ namespace BaXoai
             get { return _value; }
             set
             {
-                if (!_value.Equals(value))
+                if (!EqualityComparer<T>.Default.Equals(_value, value))
                 {
                     _value = value;
                     eventValueChanged?.Invoke(_value);

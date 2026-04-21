@@ -113,10 +113,7 @@ namespace BaXoai
         /// </summary>
         public void Update()
         {
-            if (currentState != null && currentState.onUpdate != null)
-            {
-                currentState.onUpdate();
-            }
+            currentState?.onUpdate?.Invoke();
         }
 
         #endregion
@@ -226,10 +223,7 @@ namespace BaXoai
         {
             previousState = currentState;
 
-            if (currentState != null && currentState.onStop != null)
-            {
-                currentState.onStop();
-            }
+            currentState?.onStop?.Invoke();
 
             currentState = stateDictionary[newState];
 

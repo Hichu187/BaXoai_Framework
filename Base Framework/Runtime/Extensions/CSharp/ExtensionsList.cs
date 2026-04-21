@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
 namespace BaXoai
 {
     public static class ExtensionsList
@@ -19,7 +20,9 @@ namespace BaXoai
                 if (newSize > list.Capacity)
                     list.Capacity = newSize;
 
-                list.AddRange(Enumerable.Repeat(defaultValue, newSize - currentSize));
+                int toAdd = newSize - currentSize;
+                for (int i = 0; i < toAdd; i++)
+                    list.Add(defaultValue);
             }
         }
 
