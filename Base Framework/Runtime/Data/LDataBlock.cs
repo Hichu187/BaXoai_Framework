@@ -32,7 +32,19 @@ namespace BaXoai
             MonoCallback.Instance.EventApplicationQuit += OnApplicationQuit;
             MonoCallback.Instance.EventApplicationFocus += OnApplicationFocus;
 
-            LDataBlockHelper.eventDelete += () => s_instance = null;
+            LDataBlockHelper.eventDelete += OnDataDelete;
+        }
+
+        private void OnDataDelete()
+        {
+            if (!MonoCallback.IsDestroyed)
+            {
+                MonoCallback.Instance.EventApplicationPause -= OnApplicationPause;
+                MonoCallback.Instance.EventApplicationQuit -= OnApplicationQuit;
+                MonoCallback.Instance.EventApplicationFocus -= OnApplicationFocus;
+            }
+            LDataBlockHelper.eventDelete -= OnDataDelete;
+            s_instance = null;
         }
 
         private void OnApplicationPause(bool paused)
@@ -58,7 +70,7 @@ namespace BaXoai
         public static void Delete()
         {
             LDataHelper.DeleteInDevice(FileName);
-            s_instance = null;
+            s_instance?.OnDataDelete();
         }
     }
 

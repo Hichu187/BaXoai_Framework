@@ -128,7 +128,6 @@ namespace BaXoai
             if (_sequence != null)
                 return;
 
-            _sequence?.Kill();
             _sequence = DOTween.Sequence();
 
             if (!_animations.IsNullOrEmpty())

@@ -72,18 +72,7 @@ namespace BaXoai
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public bool Interactable()
-        {
-            if(_canvasGroup == null)
-            {
-                _canvasGroup = GetComponent<CanvasGroup>();
-            }
-            if(_canvasGroup == null)
-            {
-                return true;
-            }
-            return _canvasGroup.interactable;
-        }
+        public bool Interactable() => _canvasGroup.interactable;
 
         private void OnDestroy()
         {
@@ -111,7 +100,6 @@ namespace BaXoai
             if (_sequence != null)
                 return;
 
-            _sequence?.Kill();
             _sequence = DOTween.Sequence();
 
             if (_extras.IsNullOrEmpty() && _transitionEntities.IsNullOrEmpty())
@@ -152,7 +140,7 @@ namespace BaXoai
 
             if (_openDuration > 0.0f)
             {
-                _sequence.timeScale = _openDuration > 0.0f ? 1.0f / _openDuration : 1.0f;
+                _sequence.timeScale = 1.0f / _openDuration;
 
                 _sequence.Complete();
                 _sequence.Restart();
@@ -192,7 +180,7 @@ namespace BaXoai
 
             if (_closeDuration > 0.0f)
             {
-                _sequence.timeScale = _closeDuration > 0.0f ? 1.0f / _closeDuration : 1.0f;
+                _sequence.timeScale = 1.0f / _closeDuration;
 
                 _sequence.Complete();
                 _sequence.PlayBackwards();

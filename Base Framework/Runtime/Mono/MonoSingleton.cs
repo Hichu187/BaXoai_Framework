@@ -1,5 +1,4 @@
-﻿using BaXoai;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BaXoai
 {

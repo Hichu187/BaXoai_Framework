@@ -55,9 +55,6 @@ namespace BaXoai
         {
             _tween?.Kill();
             _tween = null;
-
-            AudioManager.volumeSound.eventValueChanged -= VolumeSound_EventValueChanged;
-            AudioManager.volumeMusic.eventValueChanged -= VolumeMusic_EventValueChanged;
         }
 
         public void Play(AudioConfig config, bool loop = false)
